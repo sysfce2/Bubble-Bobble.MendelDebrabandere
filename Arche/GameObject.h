@@ -1,5 +1,4 @@
 #pragma once
-#include <document.h>
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -49,9 +48,6 @@ namespace dae
 
 		template <class T>
 		bool HasComponent() const;
-
-		rapidjson::Value Serialize(rapidjson::Document::AllocatorType& allocator) const;
-		void Deserialize(const rapidjson::Value& value);
 
 	private:
 		inline static int s_IdCounter{};

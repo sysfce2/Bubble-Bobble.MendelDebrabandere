@@ -14,7 +14,6 @@
 #include "Renderer.h"
 #include "ResourceManager.h"
 #include "Timer.h"
-#include "ServerConnector.h"
 
 using namespace dae;
 
@@ -80,8 +79,6 @@ Minigin::Minigin(const std::string &dataPath)
 	Time::GetInstance().Init();
 
 	mpSceneManager = &SceneManager::GetInstance();
-
-	ServerConnector::GetInstance().Init();
 }
 
 Minigin::~Minigin()

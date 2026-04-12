@@ -13,7 +13,6 @@ public:
 		SinglePlayer,
 		Coop,
 		Versus,
-		SetHighScore
 	};
 
 	~SceneSwapper() override = default;

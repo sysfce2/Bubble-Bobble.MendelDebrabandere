@@ -6,7 +6,6 @@
 #include "EventQueue.h"
 #include "FoodComponent.h"
 #include "HealthDisplay.h"
-#include "HighScoreScene.h"
 #include "LevelLoader.h"
 #include "MainMenuScene.h"
 #include "SceneManager.h"
@@ -59,16 +58,8 @@ void SceneSwapper::SkipLevel()
 			}
 			else
 			{
-				if (m_State == GameState::SinglePlayer || m_State == GameState::Coop)
-				{
-					HighScoreScene::Create();
-					m_State = GameState::SetHighScore;
-				}
-				else
-				{
-					MainMenuScene::Create();
-					m_State = GameState::Menu;
-				}
+				MainMenuScene::Create();
+				m_State = GameState::Menu;
 			}
 		}
 	}
@@ -81,16 +72,8 @@ void SceneSwapper::OnEvent(const dae::Event& e)
 	{
 		dae::ServiceLocator::GetSoundSystem().ToggleMusic(false);
 		
-		if (m_State == GameState::SinglePlayer || m_State == GameState::Coop)
-		{
-			HighScoreScene::Create();
-			m_State = GameState::SetHighScore;
-		}
-		else
-		{
-			MainMenuScene::Create();
-			m_State = GameState::Menu;
-		}
+		MainMenuScene::Create();
+		m_State = GameState::Menu;
 	}
 
 

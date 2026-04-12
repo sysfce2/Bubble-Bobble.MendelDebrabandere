@@ -1,6 +1,4 @@
 #pragma once
-#include <document.h>
-
 #include "GameObject.h"
 
 namespace dae
@@ -32,10 +30,6 @@ namespace dae
 		Scene(Scene&& other) = delete;
 		Scene& operator=(const Scene& other) = delete;
 		Scene& operator=(Scene&& other) = delete;
-
-		rapidjson::Document SerializeScene() const;
-		void Deserialize(const rapidjson::Document& doc);
-
 
 	private: 
 

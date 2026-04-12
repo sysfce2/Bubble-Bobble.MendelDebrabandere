@@ -20,10 +20,6 @@ public:
 
 	bool GetMoveRight() const;
 
-
-	virtual rapidjson::Value Serialize(rapidjson::Document::AllocatorType&) const override;
-	virtual void Deserialize(const rapidjson::Value&) override;
-
 private:
 	enum class BehaviorState
 	{

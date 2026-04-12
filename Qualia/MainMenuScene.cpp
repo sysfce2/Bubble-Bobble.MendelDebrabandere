@@ -2,17 +2,13 @@
 
 #include <SDL_keycode.h>
 
-#include "ClientCommand.h"
 #include "FPSCounter.h"
-#include "HighScoreLoader.h"
 #include "InputManager.h"
 #include "ResourceManager.h"
 #include "SceneManager.h"
 #include "Scene.h"
-#include "ServerCommand.h"
 #include "ServiceLocator.h"
 #include "SoundSystem.h"
-#include "StartCoopCommand.h"
 #include "StartSinglePlayerCommand.h"
 #include "StartVersusCommand.h"
 #include "TextComponent.h"
@@ -46,11 +42,7 @@ void MainMenuScene::Create()
 
 	//Add a commands to start the game
 	InputManager::GetInstance().AddKeyboardCommand('1', InputManager::InputType::OnDown, std::make_unique<StartSinglePlayerCommand>());
-	InputManager::GetInstance().AddKeyboardCommand('2', InputManager::InputType::OnDown, std::make_unique<StartCoopCommand>());
 	InputManager::GetInstance().AddKeyboardCommand('3', InputManager::InputType::OnDown, std::make_unique<StartVersusCommand>());
-	InputManager::GetInstance().AddKeyboardCommand('9', InputManager::InputType::OnDown, std::make_unique<ServerCommand>());
-	InputManager::GetInstance().AddKeyboardCommand('0', InputManager::InputType::OnDown, std::make_unique<ClientCommand>());
-	InputManager::GetInstance().AddKeyboardCommand(0, InputManager::InputType::OnDown, std::make_unique<ClientCommand>());
 
 	const auto pFont{ ResourceManager::GetInstance().LoadFont("Retro.otf", 30) };
 
@@ -109,29 +101,6 @@ void MainMenuScene::Create()
 	pVersus->GetComponent<TextComponent>()->Update();
 	pVersus->GetTransform()->SetWorldPosition(1280.f / 2 - pVersus->GetComponent<TextureComponent>()->GetTextureSize().x / 2, 490);
 
-	//===========================================
-	//Highscores
-	const auto pHighScore = pGameScene->CreateGameObject();
-	pHighScore->AddComponent<TextureComponent>();
-	pHighScore->AddComponent<TextComponent>()->SetFont(pFont);
-	pHighScore->GetComponent<TextComponent>()->SetText("Highscores:");
-	pHighScore->GetComponent<TextComponent>()->SetColor(200, 200, 200);
-	pHighScore->GetComponent<TextComponent>()->Update();
-	pHighScore->GetTransform()->SetWorldPosition(20, 40);
-
-	HighScoreLoader::LoadHighScores("HighScores.json");
-	const auto highScores = HighScoreLoader::GetTopFive();
-	for (unsigned int i{}; i < highScores.size(); ++i)
-	{
-		const auto pScore = pGameScene->CreateGameObject();
-		pScore->AddComponent<TextureComponent>();
-		pScore->AddComponent<TextComponent>()->SetFont(pFont);
-		pScore->GetComponent<TextComponent>()->SetText(highScores[i].first + " - " + std::to_string(highScores[i].second));
-		pScore->GetComponent<TextComponent>()->SetColor(200, 200, 200);
-		pScore->GetComponent<TextComponent>()->Update();
-		pScore->GetTransform()->SetWorldPosition(20, 50.f + 30.f * (static_cast<float>(i) + 1.f));
-	}
-
 	//==============================
 	//CONTROLS
 	const auto pKeyboard = pGameScene->CreateGameObject();
@@ -165,32 +134,5 @@ void MainMenuScene::Create()
 	pDPAD->GetComponent<TextComponent>()->SetColor(200, 200, 200);
 	pDPAD->GetComponent<TextComponent>()->Update();
 	pDPAD->GetTransform()->SetWorldPosition(890, 190);
-
-	// Online multiplayer
-	const auto pMultiplayer = pGameScene->CreateGameObject();
-	pMultiplayer->AddComponent<TextureComponent>();
-	pMultiplayer->AddComponent<TextComponent>()->SetFont(pFont);
-	pMultiplayer->GetComponent<TextComponent>()->SetText("For online multiplayer:");
-	pMultiplayer->GetComponent<TextComponent>()->SetColor(200, 200, 200);
-	pMultiplayer->GetComponent<TextComponent>()->Update();
-	pMultiplayer->GetTransform()->SetWorldPosition(10, 610);
-
-	// Server
-	const auto pServer = pGameScene->CreateGameObject();
-	pServer->AddComponent<TextureComponent>();
-	pServer->AddComponent<TextComponent>()->SetFont(pFont);
-	pServer->GetComponent<TextComponent>()->SetText("Press 9 to be the server");
-	pServer->GetComponent<TextComponent>()->SetColor(200, 200, 200);
-	pServer->GetComponent<TextComponent>()->Update();
-	pServer->GetTransform()->SetWorldPosition(10,640);
-
-	// Coop
-	const auto pClient = pGameScene->CreateGameObject();
-	pClient->AddComponent<TextureComponent>();
-	pClient->AddComponent<TextComponent>()->SetFont(pFont);
-	pClient->GetComponent<TextComponent>()->SetText("Press 0 to be the client");
-	pClient->GetComponent<TextComponent>()->SetColor(200, 200, 200);
-	pClient->GetComponent<TextComponent>()->Update();
-	pClient->GetTransform()->SetWorldPosition(10, 670);
 
 }

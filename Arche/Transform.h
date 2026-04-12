@@ -26,8 +26,6 @@ namespace dae
 
 		bool GetFacingRight() const;
 
-		virtual rapidjson::Value Serialize(rapidjson::Document::AllocatorType& allocator) const override;
-		virtual void Deserialize(const rapidjson::Value& value) override;
 	private:
 		void EnableChangedFlag();
 		void UpdateWorldPosition();

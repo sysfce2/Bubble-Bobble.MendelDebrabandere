@@ -91,7 +91,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\rapidjson;$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\rapidjson;$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\rapidjson;$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +148,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)\3rdParty\rapidjson;$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arche;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,21 +166,15 @@
     <ClCompile Include="Bubble.cpp" />
     <ClCompile Include="BubbleBobble.cpp" />
     <ClCompile Include="BubbleComponent.cpp" />
-    <ClCompile Include="ClientCommand.cpp" />
     <ClCompile Include="EnemyComponent.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="FoodComponent.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="HealthDisplay.cpp" />
-    <ClCompile Include="HighScoreLoader.cpp" />
-    <ClCompile Include="HighScoreScene.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="JumpCommand.cpp" />
-    <ClCompile Include="LeaveHighScoreSceneCommand.cpp" />
     <ClCompile Include="PlayerMaita.cpp" />
     <ClCompile Include="PlayerMaitaComponent.cpp" />
-    <ClCompile Include="ServerCommand.cpp" />
-    <ClCompile Include="StartCoopCommand.cpp" />
     <ClCompile Include="StartSinglePlayerCommand.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="main.cpp" />
@@ -210,21 +204,15 @@
     <ClInclude Include="Bubble.h" />
     <ClInclude Include="BubbleBobble.h" />
     <ClInclude Include="BubbleComponent.h" />
-    <ClInclude Include="ClientCommand.h" />
     <ClInclude Include="EnemyComponent.h" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="FoodComponent.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="HealthDisplay.h" />
-    <ClInclude Include="HighScoreLoader.h" />
-    <ClInclude Include="HighScoreScene.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="JumpCommand.h" />
-    <ClInclude Include="LeaveHighScoreSceneCommand.h" />
     <ClInclude Include="PlayerMaita.h" />
     <ClInclude Include="PlayerMaitaComponent.h" />
-    <ClInclude Include="ServerCommand.h" />
-    <ClInclude Include="StartCoopCommand.h" />
     <ClInclude Include="StartSinglePlayerCommand.h" />
     <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="MainMenuScene.h" />
